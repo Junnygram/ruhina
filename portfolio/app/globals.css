@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090e1a; /* Deep Nordic Slate */
+  --foreground: #f8fafc; /* Slate 50 */
+  --card-bg: #1e293b; /* Slate 800 */
+  --border-color: #334155; /* Slate 700 */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Dotted Tech Grid Background */
+.tech-grid {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.07) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+.tech-grid-fine {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Custom Scrollbar for modern terminal feeling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Printing optimization - Prints ONLY the resume element on paper */
+@media print {
+  html, body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  #printable-resume, #printable-resume * {
+    visibility: visible;
+  }
+  
+  #printable-resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide print buttons and extra links on print */
+  .no-print {
+    display: none !important;
+  }
+}
